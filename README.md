@@ -2,7 +2,7 @@
 
 月極駐車場の契約と入金を管理するためのWebアプリです。知人が管理している月極駐車場の実際の業務をヒアリングして作りました。「誰が、何月分まで払っているか」と「延滞している区画」がひと目で分かることを目指しています。
 
-- デモ：[（公開後に追加）](https://tsukigime-manager.vercel.app)
+- デモ：[月極マネージャー](https://tsukigime-manager.vercel.app)
 - 設計メモ：[docs/design-notes.md](docs/design-notes.md)
 
 ![鈴木駐車場のB-2を選んだ画面。区画の表で延滞・支払期限前・支払済みが色と印で分かれ、右の詳細に未払いが金額と期限つきで並んでいる](docs/images/screenshot.png)
