@@ -24,17 +24,20 @@
 .heading {
   padding: 24px;
 
-  background: #fff;
   border-bottom: 1px solid #edf0f2;
 
   .number {
     display: inline-block;
-    padding: 4px 8px;
+    padding: 4px 12px;
 
-    color: var(--accent);
+    color: #fff;
     font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
 
-    border: solid 1px var(--control-border);
+    border: solid 2px var(--accent);
+    border-radius: 4px;
+    background: var(--accent);
   }
 
   h2 {
@@ -52,9 +55,8 @@
   }
 }
 
-/* ===== 本文（項目の一覧と割り当てフォーム） ===== */
 .content {
-  margin: 18px;
+  margin: 16px;
 
   background: #fff;
   box-shadow: 0 2px 5px #18243d05;
@@ -71,11 +73,25 @@
   padding: 24px;
 
   dt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     margin-bottom: 8px;
 
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--text);
+
+    &::before {
+      content: '';
+
+      width: 3px;
+      height: 12px;
+
+      border-radius: 2px;
+      background: var(--accent);
+    }
   }
 
   dd {

@@ -36,7 +36,7 @@ export default function SpaceCell({ space, onSelect, selectedSpaceId, contracts,
       </th>
       <td className={styles.person}>{status === 'vacant' ? '—' : person?.name ?? '契約者データなし'}</td>
       <td className={styles.rent}>{rent !== null ? `${rent.toLocaleString("ja-JP")}円` : contract ? "未設定" : "—"}</td>
-      <td><span className={`${styles.status} ${styles[status]}`}><span className={styles.dot} />{statusLabels[status]}</span></td>
+      <td><span className={`${styles.status} ${styles[status]}`}>{statusLabels[status]}</span></td>
       <td className={status === 'overdue' ? `${paymentDetailStyles.detail} ${paymentDetailStyles.overdue}` : paymentDetailStyles.detail}>
         {paymentDetail(result)}
       </td>
