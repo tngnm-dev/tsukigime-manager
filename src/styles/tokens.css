@@ -1,0 +1,18 @@
+:root {
+  --page: #eef2f7;
+  --surface-muted: #f3f6fa;
+  --text: #263449;
+  --text-muted: #596579;
+  --accent: #285a91;
+  --accent-strong: #204873;
+  --selected: #e7effb;
+  --selected-hover: #d9e6f8;
+  --hover: #eef3fb;
+  --control-border: #78889c;
+  
+  /* 延滞の強調（支払状況のバッジと支払詳細の文字） */
+  --overdue-text: #a72d3b;
+  --overdue-dot: #b83243;
+  --overdue-bg: #fbe3e6;
+  --overdue-border: #e3a0a8;
+}

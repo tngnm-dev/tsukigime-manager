@@ -1,0 +1,155 @@
+/* ===== 行 ===== */
+/* 行の見た目（縞模様・選択中）は、選択中のクラスを持つこのファイルにまとめている。
+   表の側（LotItem）に置くと、選択中のクラス名をそちらから参照できないため */
+.row {
+  > th, > td {
+    height: 80px;
+    padding: 16px 20px;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+
+  th {
+    position: relative;
+
+    .selectionLabel {
+      position: absolute;
+      bottom: 3px;
+
+      min-height: 16px;
+      
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+  }
+}
+
+.row:nth-child(even) {
+  background: var(--surface-muted);
+}
+
+/* .row:nth-child(even)と詳細度が同じなので、後に書いて勝たせている */
+.row.selected {
+  background: var(--selected);
+  box-shadow: inset 3px 0 var(--accent);
+}
+
+/* ===== tdコンテンツ ===== */
+.numberGroup {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  min-width: 40px;
+  padding: 6px 10px;
+
+  color: var(--text);
+
+  border: solid 1px var(--control-border);
+  border-radius: 4px;
+  background: #fff;
+
+  cursor: pointer;
+}
+
+.number:hover {
+  color: var(--accent-strong);
+
+  background: var(--hover);
+  border-color: var(--accent);
+}
+
+.selected .number {
+  color: #fff;
+  font-weight: 600;
+
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.selected .number:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.number:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 3px;
+}
+
+.person {
+  min-width: 160px;
+  
+  font-weight: 500;
+  word-break: auto-phrase;
+}
+
+.rent {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== 支払状況 ===== */
+/* 状態ごとのクラス名（.vacant / .unknown / .feeMissing / .overdue / .due / .prepaid / .paid）はSpaceCellStatusの値と同じにしてる。
+   SpaceCell.tsxでstyles[status]として選ぶため、状態を増やしたらここにもクラスを足す */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px;
+  margin-inline-start: -11px;
+
+  white-space: nowrap;
+  font-size: 12px;
+
+  border: solid 1px transparent;
+  border-radius: 999px;
+}
+
+.overdue {
+  background: var(--overdue-bg);
+  border-color: var(--overdue-border);
+  color: var(--overdue-text);
+  font-weight: 600;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: #596579;
+  
+  flex-shrink: 0;
+}
+
+.paid .dot {
+  background: #18734c;
+}
+
+.prepaid .dot {
+  background: #246993;
+}
+
+.overdue .dot {
+  background: var(--overdue-dot);
+}
+
+.due .dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #b35c00;
+}
+.unknown .dot,
+.feeMissing .dot {
+  background: #946300;
+}
+
+.vacant {
+  color: var(--text-muted);
+}

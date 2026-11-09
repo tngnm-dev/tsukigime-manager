@@ -1,0 +1,129 @@
+/* aside 要素（区画詳細の枠） */
+.detail {
+  min-width: 0;
+  border-left: solid 1px #e6e9ed;
+  background: var(--surface-muted);
+}
+
+/* 区画を選んでいないとき */
+.empty {
+  padding: 24px;
+
+  p {
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+
+  span {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+}
+
+/* ===== 見出し（区画番号・契約者名） ===== */
+.heading {
+  padding: 24px;
+
+  background: #fff;
+  border-bottom: 1px solid #edf0f2;
+
+  .number {
+    display: inline-block;
+    padding: 4px 8px;
+
+    color: var(--accent);
+    font-size: 12px;
+
+    border: solid 1px var(--control-border);
+  }
+
+  h2 {
+    padding-top: 12px;
+    padding-bottom: 4px;
+
+    font-size: 18px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+}
+
+/* ===== 本文（項目の一覧と割り当てフォーム） ===== */
+.content {
+  margin: 18px;
+
+  background: #fff;
+  box-shadow: 0 2px 5px #18243d05;
+
+  > * + .fields {
+    border-top: 1px solid #edf0f2;
+  }
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 24px;
+
+  dt {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  dd {
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.fieldsWide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* 支払詳細の一覧（名前・残り・期限）。subgrid で列をそろえて、金額と期限を縦に比べやすくする。
+   li を display: contents にしないのは、ブラウザによってリストとして読み上げられなくなるため */
+.unpaidList {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 16px;
+  row-gap: 4px;
+
+  li {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+}
+
+.unpaidAmount {
+  text-align: end;
+}
+
+.assignment {
+  padding: 24px 20px;
+  border-top: 1px solid #edf0f2;
+
+  h3 {
+    padding-bottom: 24px;
+
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 1000px) {
+  .detail {
+    border-left: 0;
+    border-top: solid 1px #e6e9ed;
+  }
+}

@@ -1,0 +1,11 @@
+/* 支払詳細の文字。区画の表（SpaceCell）と区画詳細（SpaceDetail）の両方で使うので、部品のファイルではなくここに置いている */
+.detail {
+  min-width: 160px;
+
+  word-break: auto-phrase;
+}
+
+.overdue {
+  color: var(--overdue-text);
+  font-weight: 600;
+}

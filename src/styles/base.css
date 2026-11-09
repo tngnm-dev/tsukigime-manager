@@ -1,0 +1,17 @@
+/* ページ全体の土台。要素セレクタ（body など）は CSS Modules でも全体に効いてしまうので、普通の CSS としてここに置く */
+body {
+  padding: 40px;
+
+  color: var(--text);
+  font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+
+  background: var(--page);
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 16px;
+  }
+}

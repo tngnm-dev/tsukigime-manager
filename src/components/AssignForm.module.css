@@ -1,0 +1,250 @@
+.form {
+  display: grid;
+  gap: 24px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form select {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 10px;
+
+  font-size: 13px;
+  color: var(--text);
+
+  background: #fff;
+  border: solid 1px var(--control-border);
+  border-radius: 4px;
+}
+
+.form select:focus-visible,
+.form input:focus-visible,
+.submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 前払いのチェックボックス。上書きするために詳細度を上げてる */
+.form .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.form .check input[type="checkbox"] {
+  /*前払い用のcheckbox*/
+  width: 16px;
+  height: 16px;
+
+  accent-color: var(--accent);
+}
+
+/* ===== 充てる金額 ===== */
+.amountField {
+  padding: 16px;
+  background: var(--surface-muted);
+  border: 1px solid #dde3e8;
+  border-radius: 4px;
+}
+
+.amountHint {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.amountChoices {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ふだんはボタンで「どこまで払うか」を選び、手で打つのはイレギュラーなときだけ */
+.amountButtons {
+  display: grid;
+  gap: 6px;
+
+  button {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 10px;
+
+    color: var(--accent);
+    font: inherit;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    text-align: left;
+    overflow-wrap: anywhere;
+
+    border: solid 1px #dde3e8;
+    border-radius: 4px;
+    background: #fff;
+
+    cursor: pointer;
+
+    &[aria-pressed="true"] {
+      color: var(--accent-strong);
+      border-color: var(--accent);
+      background: var(--selected);
+    }
+
+    &:hover:not(:disabled) {
+      background: var(--hover);
+      border-color: var(--accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      color: #92999e;
+      background: #f3f4f6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.choiceAmount {
+  flex-shrink: 0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.amountInput {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 13px;
+  color: var(--text);
+
+  input {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 12px;
+
+    font: inherit;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+
+    background: #fff;
+    border: solid 1px var(--control-border);
+    border-radius: 4px;
+  }
+
+  input[aria-invalid="true"] {
+    border-color: #a72d3b;
+  }
+}
+
+/* ===== 割り当てのプレビュー ===== */
+.summary {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+
+  background: var(--surface-muted);
+
+  > div {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 16px;
+
+    align-items: baseline;
+
+    font-size: 13px;
+  }
+
+  dt {
+    /*〇〇年△月分*/
+    color: var(--text-muted);
+  }
+
+  dd {
+    /*〇〇円*/
+    text-align: right;
+
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ===== お知らせ ===== */
+.error,
+.note {
+  padding: 12px;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.error {
+  color: #a72d3b;
+
+  border: solid 1px #f1d4d7;
+  background: #fff5f5;
+}
+
+.note {
+  color: var(--text);
+
+  border: solid 1px #dde3e8;
+  background: var(--surface-muted);
+}
+
+/* ===== 割り当てるボタン ===== */
+.submit {
+  width: 100%;
+  min-height: 42px;
+
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+
+  border: 0;
+  border-radius: 4px;
+  background: var(--accent);
+
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: var(--accent-strong);
+  }
+
+  &:disabled {
+    color: #92999e;
+
+    background: #e6e9ed;
+
+    cursor: not-allowed;
+  }
+}
